@@ -53,6 +53,7 @@ input{
     height: 1.4rem;
     border: none;
     border-radius: 5px;
+    padding: 1px 6px;
 }
 .contentButton{
     width: 100%;
@@ -69,8 +70,10 @@ button{
     font-weight:500;
     background-color: #5ffc04;
     color: white;
+    transition: all .5s ease;
 }
 button:hover{
     background-color: #2f8200;
     color: white;
+    transition: all .5s ease;
 }

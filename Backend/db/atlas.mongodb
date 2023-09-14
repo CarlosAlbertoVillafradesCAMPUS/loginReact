@@ -1,0 +1,45 @@
+use("db_login")
+db.createCollection("usuarios", {
+    validator:{
+        $jsonSchema:{
+            bsonType:"object",
+            additionalProperties: false,
+            required: ["nombreUser", "emailUser", "passwordUser"],
+            properties:{
+                _id:{
+                    bsonType:"objectId"
+                },
+                nombreUser:{
+                    bsonType:"string",
+                    maxLength: 50,
+                    description: "nombreUser is reqired and type string"
+                },
+                emailUser:{
+                    bsonType:"string",
+                    maxLength: 50,
+                    description: "EmailUser is reqired and type string"
+                },
+                passwordUser:{
+                    bsonType:"string",
+                    maxLength: 20,
+                    description: "passwordUser is reqired and type string"
+                }
+            }
+
+        }
+    }
+})
+
+use("db_login")
+db.usuarios.insertMany([
+    {
+        nombreUser:"Villafrades",
+        emailUser:"cavillafrades@gmail.com",
+        passwordUser:"villafrades123"
+    },
+    {
+        nombreUser:"PedorRDGZ",
+        emailUser:"pedro@gmail.com",
+        passwordUser:"pedro123"
+    }
+])
