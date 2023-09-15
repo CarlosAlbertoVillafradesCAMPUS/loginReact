@@ -18,17 +18,9 @@ export default function MyFormulario() {
     }
     try {
       const response = await (await fetch("http://127.15.0.99:5019/login", options)).json();
-      console.log(response);
       if(response.status === 200){
         localStorage.setItem("token", response.token);
-        redirect("/home", {
-          state:{
-            user:{
-              nickName: response.nickName,
-              email: response.email
-            }
-          }
-        })
+        redirect("/home")
       } else{
         alert(response.message)
       }

@@ -5,8 +5,8 @@ dotenv.config();
 const dataBase = await connectDB()
 
 const generateToken = async (req,res,next) =>{
-    console.log(req.body)
-    if(Object.keys(req.body) === 0) return res.status(400).send({status:400, message:"Datos no enviados"})
+  console.log(Object.keys(req.body));
+    if(Object.keys(req.body).length === 0) return res.status(400).send({status:400, message:"Datos no enviados"})
     const coleccion = dataBase.collection("usuarios")
     const checkUser = await coleccion.findOne({emailUser: req.body.Email});
     console.log(checkUser); 
@@ -31,7 +31,9 @@ const generateToken = async (req,res,next) =>{
 }
 
 const verifyToken = () => async (req, res, next) => {
+  console.log("holaaaa");
     const { authorization } = req.headers;
+    console.log(authorization);
     if (!authorization)
       return res.status(400).json({ status: 400, message: "Porfavor generar Token" });
       try {
