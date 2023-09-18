@@ -31,7 +31,6 @@ const generateToken = async (req,res,next) =>{
 }
 
 const verifyToken = () => async (req, res, next) => {
-  console.log("holaaaa");
     const { authorization } = req.headers;
     console.log(authorization);
     if (!authorization)

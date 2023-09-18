@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import "../styles/Home.css"
 
 export default function Home() {
   const [nombre, setNombre] = useState("");
@@ -42,11 +43,18 @@ export default function Home() {
   }
 
   return (
-    <div>
-    <h2>{nombre} Bienvenido al home</h2>
-    <br />
-    <br />
-    <button onClick={Logout} >Log out</button>
+    <div className='principalHome'>
+    <div className='infoHome'>
+      <div className='textHome'>
+        <p className='nickname'>{nombre}</p>
+        <p className='text'>Bienvenido al Home</p>
+      </div>
+      <br />
+      <br />
+      <div className='containerButtonHome'>
+      <button onClick={Logout} >Log out</button>
+      </div>
+    </div>
     </div>
   )
 }
