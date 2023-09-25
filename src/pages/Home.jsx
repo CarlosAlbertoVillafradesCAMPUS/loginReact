@@ -6,6 +6,8 @@ export default function Home() {
   const [nombre, setNombre] = useState("");
   const redirect = useNavigate()
 
+  const urlApi = JSON.parse(import.meta.env.VITE_MY_SERVER);
+
   const peticionFetch = async () => {
     const token = localStorage.getItem("token");
     console.log(token);
@@ -18,7 +20,7 @@ export default function Home() {
     };
     try {
       const response = await (await fetch(
-        "http://127.15.0.99:5019/users",
+        `http://${urlApi.host}:${urlApi.port}/users`,
         options
       )).json();
       console.log(response);

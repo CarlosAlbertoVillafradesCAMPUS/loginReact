@@ -8,6 +8,8 @@ export default function MyFormulario() {
   const [Password, setPassword] = useState("")
   const redirect = useNavigate();
 
+  const urlApi = JSON.parse(import.meta.env.VITE_MY_SERVER);
+
   async function submit(e){
     e.preventDefault();
     console.log(Email, Password);
@@ -17,7 +19,7 @@ export default function MyFormulario() {
       body: JSON.stringify({Email, Password})
     }
     try {
-      const response = await (await fetch("http://127.15.0.99:5019/login", options)).json();
+      const response = await (await fetch(`http://${urlApi.host}:${urlApi.port}/login`, options)).json();
       if(response.status === 200){
         localStorage.setItem("token", response.token);
         redirect("/home")

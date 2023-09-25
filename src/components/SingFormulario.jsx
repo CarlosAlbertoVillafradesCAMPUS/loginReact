@@ -8,6 +8,8 @@ export default function SingFormulario() {
     const [Nickname, setNickname] = useState("")
     const redirect = useNavigate();
 
+    const urlApi = JSON.parse(import.meta.env.VITE_MY_SERVER);
+
     async function submit(e){
       e.preventDefault();
       console.log(Email, Password);
@@ -17,7 +19,7 @@ export default function SingFormulario() {
         body: JSON.stringify({Nickname, Email, Password})
       }
       try {
-        const response = await (await fetch("http://127.15.0.99:5019/users", options)).json();
+        const response = await (await fetch(`http://${urlApi.host}:${urlApi.port}/users`, options)).json();
         console.log(response);
         if(response.status === 200){
             alert(response.data)

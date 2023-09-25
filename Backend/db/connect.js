@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
-import dotenv from "dotenv";
+import { loadEnv } from "vite";
 
-dotenv.config();
-const my_conexion = JSON.parse(process.env.MY_CONEXION);
+const env = loadEnv("development", process.cwd(), "VITE")
+const my_conexion = JSON.parse(env.VITE_MY_CONEXION)
 
 export async function connectDB(){
     try {
