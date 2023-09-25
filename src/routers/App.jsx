@@ -5,6 +5,7 @@ import ProtectedRoute from "../utils/ProtectedRoute";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import Singup from "../pages/Singup";
 
 function App() {
   const [activateLogin, setActivateLogin] = useState(true)
@@ -31,6 +32,7 @@ function App() {
       <Routes>
       <Route element={<ProtectedRoute canActivate={activateLogin} redirectPath="/home" />}>
           <Route path="/" element={<Login />} />
+          <Route path="/signUp" element={<Singup />} />
       </Route>
       <Route element={<ProtectedRoute canActivate={activatePages} redirectPath="/" />}>
           <Route path="/home" element={<Home />} />

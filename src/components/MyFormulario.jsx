@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/MyFormulario.css";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function MyFormulario() {
 
@@ -38,13 +38,16 @@ export default function MyFormulario() {
         <div className='contentForm'>
         <div>
             <label>Email</label>
-            <input name='Email' type='text' onChange={(e)=>setEmail(e.target.value)} required />
+            <input name='Email' type='text' placeholder='ca@example.com' onChange={(e)=>setEmail(e.target.value)} required />
             <label>Password</label>
-            <input name='Password' type="password" onChange={(e)=>setPassword(e.target.value)} required />
+            <input name='Password' placeholder='password' type="password" onChange={(e)=>setPassword(e.target.value)} required />
         </div>
         </div>
         <div className='contentButton'>
             <button type='submit'>Login</button>
+        </div>
+        <div className='contSign'>
+          <p className='sign'>No estoy registrado, deseo <Link to={"/signUp"}>Registrarme</Link> </p>
         </div>
     </form>
     </div>
